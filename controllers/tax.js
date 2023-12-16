@@ -160,11 +160,11 @@ let pdf;
 
     const data= await Tax.findById(id);
     if (data) {
-        data.companyName= data.companyName||req.body.companyName;
-        data.businessPartnerNo= data.businessPartnerNo||req.body.businessPartnerNo;
-        data.startPeriod= data.startPeriod||req.body.startPeriod;
-        data.expiryDate= data.expiryDate||req.body.expiryDate;
-        data.pdf= data.pdf||pdf;
+        data.companyName= req.body.companyName||data.companyName;
+        data.businessPartnerNo=  req.body.businessPartnerNo||data.businessPartnerNo;
+        data.startPeriod= req.body.startPeriod||data.startPeriod;
+        data.expiryDate= req.body.expiryDate||data.expiryDate;
+        data.pdf=  pdf||data.pdf;
     
         await data.save()
             
